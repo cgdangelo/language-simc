@@ -1,6 +1,6 @@
 {
   "name": "language-simc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "SimulationCraft language support for Atom.",
   "engines": {
     "atom": "*"
