@@ -1,0 +1,11 @@
+{
+  "name": "language-simc",
+  "version": "0.0.0",
+  "description": "SimulationCraft language support for Atom.",
+  "engines": {
+    "atom": "*"
+  },
+  "dependencies": {},
+  "repository": "https://github.com/cgdangelo/language-simc",
+  "license": "MIT"
+}

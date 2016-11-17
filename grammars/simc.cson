@@ -1,0 +1,75 @@
+scopeName: 'source.simc'
+name: 'SimulationCraft'
+filesTypes: [
+  'simc'
+]
+patterns: [
+  {
+    include: '#comment'
+  }
+  {
+    include: '#statement'
+  }
+]
+repository:
+  statement:
+    patterns: [
+      {
+        begin: '(^[\\s]*)'
+        beginCaptures:
+          1: name: 'punctuation.whitespace.leading'
+        end: '(?=\r?\n|$)'
+        patterns: [
+          {
+            begin: '(?<!\\S)#'
+            beginCaptures:
+              0: name: 'punctuation.definition.comment'
+            end: '(?=$)'
+            name: 'comment.line.number-sign'
+          }
+          {
+            match: '([\\S]+?)(\\+?=)([\\S]+)$'
+            captures:
+              1: name: 'storage.type'
+              2: name: 'keyword.operator.assignment'
+              3:
+                name: 'string.unquoted'
+                patterns: [
+                  {
+                    begin: '"'
+                    end: '\\G(?=")'
+                    name: 'string.quoted.double'
+                  }
+                  {
+                    match: '\\d+(\\.\\d+)?(int|str|agi|sta|crit|haste|vers|mastery)?'
+                    name: 'constant.numeric'
+                  }
+                  {
+                    match: '\\b(?<!\\.)(if|name|type|id|bonus_id|relic_id|gem_id|enchant|gems|enchant_id|ilevel|quality|stats|interrupt_if|value|cycle_targets|select_target|slot|max_cycle_targets|target_if)(=)(\\b|\\(|!)'
+                    captures:
+                      1: name: 'keyword.control'
+                      2: name: 'keyword.operator.assignment'
+                  }
+                  {
+                    match: '\\b(?<![.,])(target.buff|target.debuff|target|casting|pet.buff|pet.debuff|pet|player|buff|debuff|cooldown|talent|action|gcd|prev_gcd|prev_off_gcd|dot|spell_targets|variable|focus|artifact)\\.([[:alnum:]_]+?)\\b'
+                    captures:
+                      1: name: 'support.class'
+                      2: name: 'variable.parameter'
+                  }
+                  {
+                    match: '\\b(cast_time|execute_time|travel_time|charges_fractional|active_enemies|time|ticking|ticks|ticks_remain|tick_time|miss_react|cooldown_react|cast_delay|refreshable|burn_phase|burn_phase_duration|focus|cooldown|duration|spell_targets|gcd|charges|chi|energy|holy_power|insanity|spell_haste|shadowy_apparitions_in_flight|runic_power)\\b'
+                    name: 'constant.language'
+                  }
+                  {
+                    match: '\\b(?<=\\.)(react|charges|remains|stack|enabled|disabled|up|down|pct|time_to_die|min|max|deficit|active|inactive|time_to_max)\\b'
+                    name: 'constant.language'
+                  }
+                  {
+                    match: '\\b(equipped|artifact|mana|health|focus|spell_targets|variable|chi|energy|runic_power)\\.([\\S+]?)\\b'
+                    name: 'support.class'
+                  }
+                ]
+          }
+        ]
+      }
+    ]
