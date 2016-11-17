@@ -45,27 +45,27 @@ repository:
                     name: 'constant.numeric'
                   }
                   {
-                    match: '\\b(?<!\\.)(if|name|type|id|bonus_id|relic_id|gem_id|enchant|gems|enchant_id|ilevel|quality|stats|interrupt_if|value|cycle_targets|select_target|slot|max_cycle_targets|target_if)(=)(\\b|\\(|!)'
+                    match: '\\b(?<!\\.)(if|name|type|id|bonus_id|relic_id|gem_id|enchant|gems|enchant_id|ilevel|quality|stats|interrupt_if|value|cycle_targets|select_target|slot|max_cycle_targets|target_if|animation_cancel|sync|for_next|max_energy)(=)(\\b|\\(|!)'
                     captures:
                       1: name: 'keyword.control'
                       2: name: 'keyword.operator.assignment'
                   }
                   {
-                    match: '\\b(?<![.,])(target.buff|target.debuff|target|casting|pet.buff|pet.debuff|pet|player|buff|debuff|cooldown|talent|action|gcd|prev_gcd|prev_off_gcd|dot|spell_targets|variable|focus|artifact)\\.([[:alnum:]_]+?)\\b'
+                    match: '\\b(?<![.,])(target.buff|target.debuff|target|casting|pet.buff|pet.debuff|pet|player|buff|debuff|cooldown|talent|action|gcd|prev_gcd|prev_off_gcd|dot|spell_targets|variable|focus|artifact|raid_event|equipped|trinket)\\.([[:alnum:]_]+?)\\b'
                     captures:
                       1: name: 'support.class'
                       2: name: 'variable.parameter'
                   }
                   {
-                    match: '\\b(cast_time|execute_time|travel_time|charges_fractional|active_enemies|time|ticking|ticks|ticks_remain|tick_time|miss_react|cooldown_react|cast_delay|refreshable|burn_phase|burn_phase_duration|focus|cooldown|duration|spell_targets|gcd|charges|chi|energy|holy_power|insanity|spell_haste|shadowy_apparitions_in_flight|runic_power)\\b'
+                    match: '\\b(cast_time|execute_time|travel_time|charges_fractional|active_enemies|time|ticking|ticks|ticks_remain|tick_time|miss_react|cooldown_react|cast_delay|refreshable|burn_phase|burn_phase_duration|focus|cooldown|duration|spell_targets|gcd|charges|chi|energy|holy_power|insanity|spell_haste|shadowy_apparitions_in_flight|runic_power|desired_targets|recharge_time|fury|movement|rune|astral_power|remains|combo_points|persistent_multiplier|max_charges)\\b'
                     name: 'constant.language'
                   }
                   {
-                    match: '\\b(?<=\\.)(react|charges|remains|stack|enabled|disabled|up|down|pct|time_to_die|min|max|deficit|active|inactive|time_to_max)\\b'
+                    match: '\\b(?<=\\.)(react|charges|remains|stack|enabled|disabled|up|down|pct|time_to_die|min|max|deficit|active|inactive|time_to_max|ready|in|distance|exists|cost|pmultiplier|regen)\\b'
                     name: 'constant.language'
                   }
                   {
-                    match: '\\b(equipped|artifact|mana|health|focus|spell_targets|variable|chi|energy|runic_power)\\.([\\S+]?)\\b'
+                    match: '\\b(equipped|artifact|mana|health|focus|spell_targets|variable|chi|energy|runic_power|fury|astral_power|combo_points)\\.([\\S+]?)\\b'
                     name: 'support.class'
                   }
                 ]
