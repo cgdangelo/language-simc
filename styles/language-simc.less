@@ -1,17 +1,12 @@
 @import 'ui-variables';
 
-atom-text-editor::shadow {
-  .source.simc {
-    .keyword {
-      &.control {
-        &.type {
-          color: lime;
-        }
-
-        &.actor {
-          color: orangered;
-        }
-      }
+atom-text-editor.editor {
+  .syntax--source.simc {
+    .syntax--keyword.syntax--control.syntax--type {
+      color: lime;
+    }
+    .syntax--keyword.syntax--control.actor {
+      color: orangered;
     }
   }
 }
